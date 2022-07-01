@@ -12,4 +12,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/variables";
+header {
+    border-bottom: 1px solid $menu-item;
+}
 </style>

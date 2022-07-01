@@ -29,7 +29,7 @@
               <li>Logout</li>
             </ul>
           </li>
-          <li>
+          <li class="cart">
             <a href="#"
               ><i class="fa-solid fa-cart-shopping"></i> Cart
               <i class="fa-solid fa-angle-down"></i
@@ -57,20 +57,43 @@ export default {};
   ul {
     display: flex;
     margin: 0;
-    
-    li{
-        padding: 1rem;
-        cursor: pointer;
-        &:hover{
-            background-color: lighten($menu-item, $amount: 30);
-        }
+
+    li {
+      padding: 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($menu-item, $amount: 30);
+        
+      }
     }
   }
   .social-bar {
     align-self: center;
   }
   .account-bar {
+    align-self: center;
+    color: lighten($menu-item, $amount: 30);
+    a {
+        color: $menu-item;
+    }
+    li {
+      border-right: 1px solid $menu-item;
       align-self: center;
+      &.cart {
+          padding:  1rem 2.5rem;
+          border-right: 0; 
+          background-color: lighten($menu-item, $amount: 30);
+          a , i{
+              color: $font-color;
+              padding: 0 .5rem;
+          }
+          &:hover{
+            background-color: lighten($menu-item, $amount: 20);
+          }
+          
+      }
+       
+    }
   }
 }
 </style>
