@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+<div style="border-bottom: 1px solid gray">
+    <div class="container">
     <div class="top-bar">
       <div class="social-bar">
         <ul class="list-unstyled">
@@ -39,6 +40,8 @@
       </div>
     </div>
   </div>
+</div>
+  
 </template>
 
 <script>

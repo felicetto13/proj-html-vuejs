@@ -1,19 +1,19 @@
 <template>
   <header>
     <TopBar></TopBar>
+    <TheNavbar></TheNavbar>
   </header>
 </template>
 
 <script>
+import TheNavbar from './TheNavbar.vue';
 import TopBar from "./TopBar.vue";
 export default {
-  components: { TopBar },
+  components: { TopBar, TheNavbar },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables";
-header {
-    border-bottom: 1px solid $menu-item;
-}
+
 </style>
