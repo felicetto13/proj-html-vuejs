@@ -73,7 +73,7 @@ nav {
                 color: $white;
                 border-radius: 20px;
             }
-            &:hover:before {
+            &:not(li:nth-last-child(2),li:nth-last-child(1)):hover:before {
                 content: '';
                 top: -7px;
                 position: absolute;
