@@ -74,7 +74,7 @@ export default {
   .slides {
     width: 100%;
     position: relative;
-    height: 800px;
+    height: 600px;
 
     img{
         height: 100%;
