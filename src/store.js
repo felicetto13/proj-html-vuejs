@@ -25,7 +25,7 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "leather_gloves",
             reviewStar: 5,
-            styleGenres: ["Accessories", "Woman","Gloves"]
+            styleGenres: ["Accessories", "Women","Gloves"]
         },
         {
             nameArticle:"Hipster Black Top",
@@ -33,7 +33,7 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "hipster_black_top",
             reviewStar: 0,
-            styleGenres: ["Woman", "Shirt", "Cap"]
+            styleGenres: ["Women", "Shirt", "Cap"]
         },
         {
             nameArticle:"Blu Leather Jacket",
@@ -57,7 +57,7 @@ export const state = Vue.observable({
             priceDiscounted: 0,
             imgPath: "spring_printed_dress",
             reviewStar: 5,
-            styleGenres: ["Woman","Dress"]
+            styleGenres: ["Women","Dress"]
         },
         {
             nameArticle:"Blue Jackets & Stripe Tee",

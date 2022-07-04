@@ -19,7 +19,7 @@
       <div class="menu-type">
         <ul class="menu-type-items">
           <li @click="getArticlesFilter('Men')"><span>Men</span></li>
-          <li @click="getArticlesFilter('Woman')"><span>Women</span></li>
+          <li @click="getArticlesFilter('Women')"><span>Women</span></li>
           <li @click="getArticlesFilter('Accessories')"><span>Accessories</span></li>
         </ul>
       </div>
