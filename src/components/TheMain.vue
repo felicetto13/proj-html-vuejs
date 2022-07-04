@@ -1,88 +1,128 @@
 <template>
-<main>
-  <SliderHome></SliderHome>
+  <main>
+    <SliderHome></SliderHome>
 
-  <div class="section">
-    <div class="container text-center">
-      <div class="row row-cols-3 text-center align-items-center">
-        <div class="col">
-          <div class="line"></div>
-          </div>
-        <div class="col">
-          <h2>Featured Products</h2>
-        </div>
+    <div class="section">
+      <div class="container text-center">
+        <div class="row row-cols-3 text-center align-items-center">
           <div class="col">
-            <div  class="line"></div>
+            <div class="line"></div>
           </div>
-      </div>
-      <h6 class=" text-muted mt-3"><small> Must have products from our top sellers</small></h6>
-      <div class="menu-type">
-        <ul class="menu-type-items">
-          <li @click="getArticlesFilter('Men')"><span>Men</span></li>
-          <li @click="getArticlesFilter('Women')"><span>Women</span></li>
-          <li @click="getArticlesFilter('Accessories')"><span>Accessories</span></li>
-        </ul>
-      </div>
-      <div class="card-items">
-        <div id="carousel" class="row row-cols-4 flex-nowrap ">
-            <div class="col" v-for="article in getArticles" :key="article.nameArticle">
+          <div class="col">
+            <h2>Featured Products</h2>
+          </div>
+          <div class="col">
+            <div class="line"></div>
+          </div>
+        </div>
+        <h6 class="text-muted mt-3">
+          <small> Must have products from our top sellers</small>
+        </h6>
+        <div class="menu-type">
+          <ul class="menu-type-items">
+            <li @click="getArticlesFilter('Men')"><span>Men</span></li>
+            <li @click="getArticlesFilter('Women')"><span>Women</span></li>
+            <li @click="getArticlesFilter('Accessories')">
+              <span>Accessories</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-items">
+          <div id="carousel" class="row row-cols-4 flex-nowrap">
+            <div
+              class="col"
+              v-for="article in getArticles"
+              :key="article.nameArticle"
+            >
               <FeaturedCard :article="article"></FeaturedCard>
             </div>
-              </div>
-              <div class="prev" @click="previousCard()"><i class="fa-solid fa-angle-left"></i></div>
-              <div class="next" @click="nextCard()"><i class="fa-solid fa-angle-right"></i></div>
+          </div>
+          <div class="prev" @click="previousCard()">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div class="next" @click="nextCard()">
+            <i class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+      </div>
     </div>
-      
+    <div class="section collection">
+      <div class="row row-cols-3">
+        <div class="col">
+          <div class="img-collection">
+            <img src="img/winter_collection_bg.jpg" alt="Winter collection" />
+          </div>
+          <div class="overlayer-description">
+            <h2>Winter Collection</h2>
+            <h6>STYLISH AND WARM</h6>
+            <button class="btn btn-outline-light">VIEW MORE</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="img-collection">
+            <img src="img/spring_collection_bg.jpg" alt="spring collection" />
+          </div>
+          <div class="overlayer-description">
+            <h2>Spring Collection</h2>
+            <h6>BRIGHT AND COLORFUL</h6>
+            <button class="btn btn-outline-light">VIEW MORE</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="img-collection">
+            <img src="img/autumn_collection_bg.jpg" alt="autumn collection" />
+          </div>
+          <div class="overlayer-description">
+            <h2>Autumn Collection</h2>
+            <h6>RICH AND CONFORTABLE</h6>
+            <button class="btn btn-outline-light">VIEW MORE</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</main>
-    
+  </main>
 </template>
 
 <script>
-import SliderHome from './SliderHome.vue'
-import FeaturedCard from './FeaturedCard.vue'
-import {state} from "../store"
-import { filterArticles } from "../store"
+import SliderHome from "./SliderHome.vue";
+import FeaturedCard from "./FeaturedCard.vue";
+import { state } from "../store";
+import { filterArticles } from "../store";
 export default {
   components: { SliderHome, FeaturedCard },
-  data()
-  {
-    return{
-      translateX:0
-    }
+  data() {
+    return {
+      translateX: 0,
+    };
   },
-  computed:
-  {
-    getArticles(){
+  computed: {
+    getArticles() {
       return state.filteredArticles;
-    }
+    },
   },
-  mounted(){
+  mounted() {
     this.getArticlesFilter("Men");
   },
-  methods:
-  {
-    getArticlesFilter(el){
-      filterArticles(el)
+  methods: {
+    getArticlesFilter(el) {
+      filterArticles(el);
     },
 
     //function for carousel multiple item next
-    nextCard(){
-      const sliderContainer = document.getElementById('carousel')
-      const item = sliderContainer.getElementsByClassName('col')
-      sliderContainer.append(item[0])
+    nextCard() {
+      const sliderContainer = document.getElementById("carousel");
+      const item = sliderContainer.getElementsByClassName("col");
+      sliderContainer.append(item[0]);
     },
 
     //function for carousel multiple item precv
-    previousCard(){
-      debugger
-      const sliderContainer = document.getElementById('carousel')
-      const item = sliderContainer.getElementsByClassName('col')
-      sliderContainer.prepend(item[item.length-1])
-    }
-  }
-}
+    previousCard() {
+      const sliderContainer = document.getElementById("carousel");
+      const item = sliderContainer.getElementsByClassName("col");
+      sliderContainer.prepend(item[item.length - 1]);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -90,7 +130,6 @@ export default {
 .section {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  height: 2px;
 
   h2 {
     margin: 0;
@@ -107,20 +146,20 @@ export default {
       list-style: none;
       justify-content: center;
       padding: 0;
-      li{
+      li {
         padding: 1rem 2.5rem;
         display: inline-block;
         cursor: pointer;
         width: 15%;
-        border-left:1px solid $menu-item;
-        border-top:1px solid $menu-item;
-        border-bottom:1px solid $menu-item;
+        border-left: 1px solid $menu-item;
+        border-top: 1px solid $menu-item;
+        border-bottom: 1px solid $menu-item;
         background-color: lighten($menu-item, $amount: 30);
-        &:hover{
+        &:hover {
           background-color: white;
         }
 
-        &:last-child{
+        &:last-child {
           border-right: 1px solid $menu-item;
         }
       }
@@ -131,25 +170,69 @@ export default {
     padding: 3rem 0;
     position: relative;
 
-    .prev, .next {
+    .prev,
+    .next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      padding: .75rem .5rem;
-      background-color: rgba($menu-item, .5);
+      padding: 0.75rem 0.5rem;
+      background-color: rgba($menu-item, 0.5);
       cursor: pointer;
       z-index: 999;
-      transition: background-color .3s ease-in;
+      transition: background-color 0.3s ease-in;
 
       &:hover {
         background-color: rgba($menu-item, 1);
       }
     }
-    .prev{
+    .prev {
       left: 0;
     }
     .next {
       right: 0;
+    }
+  }
+}
+.collection {
+  height: 700px;
+  overflow: hidden;
+
+  .col {
+    height: 100%;
+    padding: 0;
+    position: relative;
+
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .overlayer-description {
+      position: absolute;
+      bottom: 25%;
+      text-align: center;
+      left: 50%;
+      margin: 0 auto;
+      z-index: 99999;
+      transform: translate(-50%);
+
+      h2, h6 {
+        color: white;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      h2{
+       font-size: 2.5rem;
+      }
+      .btn {
+        border-radius: 20px;
+
+        &:hover {
+          background-color: rgba($color: #000000, $alpha: .2);
+          color: white;
+        }
+
+      }
     }
   }
 }
