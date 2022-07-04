@@ -10,6 +10,7 @@ export const state = Vue.observable({
             imgPath: "black_leather_jacket",
             reviewStar: 0,
             styleGenres: ["Women", "Jackets"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Black Leather Jacket",
@@ -17,7 +18,8 @@ export const state = Vue.observable({
             priceDiscounted: 200,
             imgPath: "black_elegant_leather_jacket",
             reviewStar: 5,
-            styleGenres: ["Men", "Jackets", "Jeans"]
+            styleGenres: ["Men", "Jackets", "Jeans"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Leather Gloves",
@@ -25,7 +27,8 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "leather_gloves",
             reviewStar: 5,
-            styleGenres: ["Accessories", "Gloves"]
+            styleGenres: ["Accessories", "Gloves"],
+            feature:[]
         },
         {
             nameArticle:"Hipster Black Top",
@@ -33,7 +36,8 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "hipster_black_top",
             reviewStar: 0,
-            styleGenres: ["Women", "Shirt"]
+            styleGenres: ["Women", "Shirt"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Modern Love Tee",
@@ -41,7 +45,8 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "modern_love_tee",
             reviewStar: 0,
-            styleGenres: ["Women", "Shirt"]
+            styleGenres: ["Women", "Shirt"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Blu Leather Jacket",
@@ -49,7 +54,8 @@ export const state = Vue.observable({
             priceDiscounted: 60,
             imgPath: "blue_leather_jacket",
             reviewStar: 0,
-            styleGenres: ["Jackets","Men", "Suits"]
+            styleGenres: ["Jackets","Men", "Suits"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Modern Leather Boots",
@@ -57,7 +63,8 @@ export const state = Vue.observable({
             priceDiscounted: 30,
             imgPath: "modern_leather_boots",
             reviewStar: null,
-            styleGenres: ["Men","Boots","Accessories"]
+            styleGenres: ["Men","Boots","Accessories"],
+            feature:[]
         },
         {
             nameArticle:"Spring Printed Dress",
@@ -65,7 +72,8 @@ export const state = Vue.observable({
             priceDiscounted: 0,
             imgPath: "spring_printed_dress",
             reviewStar: 5,
-            styleGenres: ["Women","Dress"]
+            styleGenres: ["Women","Dress"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Blue Jackets & Stripe Tee",
@@ -73,7 +81,8 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "blue_jacket_and_white_stripe_tee",
             reviewStar: 0,
-            styleGenres: ["Men","Jackets","Stripe"]
+            styleGenres: ["Men","Jackets","Stripe"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Modern Black Leather Suit",
@@ -81,7 +90,8 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "modern_black_leather_suit",
             reviewStar: 0,
-            styleGenres: ["Men","Jackets"]
+            styleGenres: ["Men","Jackets"],
+            feature:["Best Seller","New Arrivals"]
         },
         {
             nameArticle:"Black Leather Suit",
@@ -89,17 +99,54 @@ export const state = Vue.observable({
             priceDiscounted: null,
             imgPath: "black_leather_suit",
             reviewStar: 0,
-            styleGenres: ["Men","Jackets",]
+            styleGenres: ["Men","Jackets",],
+            feature:["Best Seller","New Arrivals"]
         },
     ],
-    filteredArticles: []
+    filteredArticles: [],
+    filteredArticlesTopSeller: [],
+    filteredArticlesNewArrivals:[],
+    testimonials: [
+        {
+            avatarPath:"woman_testimonial.png",
+            textReview: "Proin blandit metus vel magna dignissim varius. Morbi enim lorem, sollicitudin vitae ante nec, rutrum venenatis neque. In mi augue, iaculis nec dui ac, condimentum consequat velit. Ut et metus justo.",
+            authorReview:"Lisa Smith",
+            teamAuthor:"Theme Fusion",
+            active:true,
+        },
+        {
+            avatarPath:"man_testimonial.png",
+            textReview: "Curabitur non tristique tortor. Vestibulum aliquet suscipit ipsum in volutpat. Donec vel lacinia sem, vitae semper nulla. In hac habitasse platea dictumst. Mauris consectetur est et nibh sadip hendrerit bibendum.",
+            authorReview:"Darío Pineda",
+            teamAuthor:"Theme Fusion",
+            active:false,
+        }
+    ],
 })
 
 export function filterArticles(gen){
-    debugger
     state.filteredArticles=state.articles.filter((el)=>{
         if(el.styleGenres.includes(gen)){
         return el
         }
       })
 }
+
+export function getArticleByFeature(feat){
+    debugger
+    if(feat.toLowerCase() === "best seller"){
+        state.filteredArticlesTopSeller = state.articles.filter((el)=>{
+            if(el.feature.includes(feat)){
+                return el
+                }
+    })
+    }else if(feat.toLowerCase() === "new arrivals"){
+        state.filteredArticlesNewArrivals = state.articles.filter((el)=>{
+            if(el.feature.includes(feat)){
+                return el
+                }
+        })
+    }
+    
+}
+ 
