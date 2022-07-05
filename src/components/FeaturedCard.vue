@@ -9,7 +9,7 @@
                 <small class="text-muted">{{ article.styleGenres.join(", ") }}</small>
             </span>
             <div class="card-price">
-                <span :class="{'old': article.priceDiscounted !== null}" class="price">${{ article.price }} </span><span v-show="article.priceDiscounted" class="price-discounted">${{ article.priceDiscounted }}</span>
+                <span :class="{'old': article.priceDiscounted !== null}" class="price"><small>${{ article.price }}</small> </span><span v-show="article.priceDiscounted" class="price-discounted">${{ article.priceDiscounted }}</span>
             </div>
         </div>
     </div>
@@ -44,5 +44,9 @@ export default {
     display: flex;
     flex-direction: column;
     text-align: left;
+}
+.old {
+    text-decoration: line-through;
+    margin-right: 5px;
 }
 </style>

@@ -190,6 +190,144 @@
         </div>
       </div>
     </div>
+    <div class="section blog-section">
+      <div class="container">
+        <div class="row row-cols-3 text-center align-items-center">
+          <div class="col">
+            <div class="line"></div>
+          </div>
+          <div class="col">
+            <h2>From Our Blog</h2>
+          </div>
+          <div class="col">
+            <div class="line"></div>
+          </div>
+        </div>
+        <h6 class="text-muted mt-3">
+          <small> The latest Classic Shop news</small>
+        </h6>
+        <div class="row row-cols-3 py-5">
+          <div class="col">
+            <div class="post">
+              <div class="post-img">
+                <img src="img/post_img_12-700x441.jpg" alt="women" />
+              </div>
+              <div class="post-description">
+                <div class="title">
+                  <strong>Aenean lobortis sapien enim viverr</strong>
+                </div>
+                <div class="published-data">
+                  <span><small>September 9th, 2015|0 Comments</small></span>
+                </div>
+                <div class="text-post">
+                  <p>
+                    Donec finibus sit amet orci eget ultricies. Praesent posuere
+                    ante ut erat fringilla,
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="post">
+              <div class="post-img">
+                <img src="img/post_img_11-700x441.jpg" alt="women" />
+              </div>
+              <div class="post-description">
+                <div class="title">
+                  <strong>Duis ac massa semper maximus</strong>
+                </div>
+                <div class="published-data">
+                  <span><small>September 9th, 2015|0 Comments</small></span>
+                </div>
+                <div class="text-post">
+                  <p>
+                    Donec finibus sit amet orci eget ultricies. Praesent posuere
+                    ante ut erat fringilla,
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="post">
+              <div class="post-img">
+                <img src="img/post_img_10-700x441.jpg" alt="women" />
+              </div>
+              <div class="post-description">
+                <div class="title">
+                  <strong>Nunc fermint nulla eu justo sem id</strong>
+                </div>
+                <div class="published-data">
+                  <span><small>September 9th, 2015|0 Comments</small></span>
+                </div>
+                <div class="text-post">
+                  <p>
+                    Donec finibus sit amet orci eget ultricies. Praesent posuere
+                    ante ut erat fringilla,
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section small-card">
+      <div class="container">
+        <div class="row row-cols-4">
+          <div class="col">
+            <SmallCard feat="Best Seller"></SmallCard>
+          </div>
+          <div class="col">
+            <SmallCard feat="New Arrivals"></SmallCard>
+          </div>
+          <div class="col">
+            <SmallCard feat="Best Seller"></SmallCard>
+          </div>
+          <div class="col">
+            <SmallCard feat="New Arrivals"></SmallCard>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section brands">
+      <div class="container">
+        <h5 class="text-center mb-5"><strong>BRANDS LOGO</strong></h5>
+        <div class="brands-container">
+          <ul class="list-unstyled d-flex justify-content-between">
+            <li><img src="img/b_logotype_1.png" alt="" /></li>
+            <li><img src="img/b_logotype_2.png" alt="" /></li>
+            <li><img src="img/b_logotype_3.png" alt="" /></li>
+            <li><img src="img/b_logotype_6.png" alt="" /></li>
+            <li><img src="img/b_logotype_7.png" alt="" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="section newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <h2>
+              <span><i class="fa-solid fa-envelope"></i></span
+              ><strong class="fs-2"
+                >Subscribe now and get special offers</strong
+              >
+            </h2>
+          </div>
+          <div class="col-5">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Insert your email"
+            />
+            <div class="btn btn-primary my-btn">SEND</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -200,13 +338,9 @@ import TestimonialCard from "./TestimonialCard.vue";
 import { state } from "../store";
 import { filterArticles } from "../store";
 import { getArticleByFeature } from "../store";
+import SmallCard from './SmallCard.vue';
 export default {
-  components: { SliderHome, FeaturedCard, TestimonialCard },
-  data() {
-    return {
-      translateX: 0,
-    };
-  },
+  components: { SliderHome, FeaturedCard, TestimonialCard, SmallCard },
   computed: {
     getArticles() {
       return state.filteredArticles;
@@ -249,34 +383,32 @@ export default {
       sliderContainer.prepend(item[item.length - 1]);
     },
     changeReview(id) {
-          document.getElementById(id).classList.toggle("active");
-        
+      document.getElementById(id).classList.toggle("active");
+
       setInterval(() => {
         state.testimonials.forEach((el) => {
           el.active = !el.active;
         });
-        if(id==="c1"){
+        if (id === "c1") {
           document.getElementById(id).classList.toggle("active");
-          document.getElementById('c2').classList.toggle("active");
-        }else if(id=== "c2"){
+          document.getElementById("c2").classList.toggle("active");
+        } else if (id === "c2") {
           document.getElementById(id).classList.toggle("active");
-          document.getElementById('c1').classList.toggle("active");
+          document.getElementById("c1").classList.toggle("active");
         }
-        
       }, 7000);
     },
     changeClass(id) {
-      debugger;
       state.testimonials.forEach((el) => {
-          el.active = !el.active;
-        });
-      if(id==="c1"){
-          document.getElementById(id).classList.toggle("active");
-          document.getElementById('c2').classList.toggle("active");
-        }else if(id=== "c2"){
-          document.getElementById(id).classList.toggle("active");
-          document.getElementById('c1').classList.toggle("active");
-        }
+        el.active = !el.active;
+      });
+      if (id === "c1") {
+        document.getElementById(id).classList.toggle("active");
+        document.getElementById("c2").classList.toggle("active");
+      } else if (id === "c2") {
+        document.getElementById(id).classList.toggle("active");
+        document.getElementById("c1").classList.toggle("active");
+      }
     },
   },
 };
@@ -470,9 +602,9 @@ export default {
       bottom: 0%;
       left: 50%;
       transform: translate(-25%, 100%);
-      .active{
-          background-color: white;
-        }
+      .active {
+        background-color: white;
+      }
       span {
         display: inline-block;
         margin-right: 10px;
@@ -488,5 +620,49 @@ export default {
     }
   }
 }
+.blog-section {
+  border-bottom: 1px solid rgba($menu-item, 0.5);
+}
+.post-img {
+  overflow: hidden;
 
+  img {
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      transform: scale(1.5);
+      opacity: 0.7;
+    }
+  }
+}
+.small-card .col {
+  color: rgba($font-color,.8);
+}
+
+.brands {
+  background-color: rgba($menu-item, 0.3);
+}
+.newsletter {
+  background-color: $newsletter-color;
+
+  h2 {
+    font-weight: bolder;
+    color: white;
+    span {
+      width: 50px;
+      height: 50px;
+      padding: 0.5rem;
+      background-color: darken($newsletter-color, 4 );
+      border-radius: 40px;
+      color: rgba($menu-item, 0.5);
+      margin-right: 10px;
+    }
+  }
+
+  .btn {
+    border-radius: 30px;
+    padding: .5rem 1.25rem;
+  }
+}
 </style>

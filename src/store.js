@@ -122,6 +122,7 @@ export const state = Vue.observable({
             active:false,
         }
     ],
+    tags:["Black", "Boots", "brown", "Casual", "D&G", "Fabric", "flowers", "Grey", "hat", "Hipster", "lines", "multi-purpose", "New York", "Outdoors","red", "responsive", "Summer","Sweater","Travel","Warm","White","winter"]
 })
 
 export function filterArticles(gen){
@@ -133,15 +134,14 @@ export function filterArticles(gen){
 }
 
 export function getArticleByFeature(feat){
-    debugger
-    if(feat.toLowerCase() === "best seller"){
-        state.filteredArticlesTopSeller = state.articles.filter((el)=>{
+    if(feat === "Best Seller"){
+       return state.filteredArticlesTopSeller = state.articles.filter((el)=>{
             if(el.feature.includes(feat)){
                 return el
                 }
     })
-    }else if(feat.toLowerCase() === "new arrivals"){
-        state.filteredArticlesNewArrivals = state.articles.filter((el)=>{
+    }else if(feat === "New Arrivals"){
+        return state.filteredArticlesNewArrivals = state.articles.filter((el)=>{
             if(el.feature.includes(feat)){
                 return el
                 }
